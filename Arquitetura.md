@@ -41,7 +41,7 @@ O **We Go Gym** é uma plataforma web para gerenciamento de treinos e acompanham
 
 ## 4. Diagrama de Arquitetura de Alto Nível
 
-![Diagrama de Arquitetura de Alto Nível](assets/DiagramaAltoNivel.PNG)
+![Diagrama de Arquitetura de Alto Nível](assets/DiagramaAltoNivel.png)
 
 > **Descrição**:  
 - A interface web (frontend), faz chamadas REST para utilizar os serviços do backend.  
