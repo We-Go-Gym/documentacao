@@ -1,13 +1,13 @@
 # Documento de Arquitetura – We Go Gym
 
 ## 1. Visão Geral
-O **We Go Gym** é um sistema de gerenciamento de exercícos que permite cadastrar e gerenciar alunos e treinadores, além de controlar a relação entre eles. Este documento descreve a arquitetura de software do sistema, incluindo componentes, fluxos de dados e decisões técnicas.
+O **We Go Gym** é uma plataforma web para gerenciamento de treinos e acompanhamento físico. O sistema adota uma arquitetura baseada em microsserviços, separando responsabilidades de interface, regra de negócio e autenticação, garantindo escalabilidade e desacoplamento.
 
 ---
 
 ## 2. Objetivos do Sistema
-- Permitir que treinadores cadastrem e gerenciem  alunos de forma eficiente.  
-- Permitir que alunos  acessem informações de seus exerciícos e observem sua evolução.  
+- Permitir que treinadores(admins) cadastrem e gerenciem  os exercícios criados por eles  
+- Permitir que alunos  acessem informações de seus treinos, adicionem exercíicos a eles e observem sua evolução.  
 - Garantir persistência dos dados, desempenho e facilidade de manutenção.  
 
 ---
@@ -17,23 +17,24 @@ O **We Go Gym** é um sistema de gerenciamento de exercícos que permite cadastr
 ### Funcionais (derivados do backlog)
 | ID   | Requisito                                    | Usuário       |
 |------|---------------------------------------------|---------------|
-| US01 | Cadastro de alunos                           | Treinador     |
-| US02 | Edição de dados de alunos                    | Treinador e Alunos    |
-| US03 | Remoção de alunos                            | Treinador     |
-| US04 | Cadastro de treinadores                      | Administrador e Usuário interessado |
-| US05 | Cadastro de Treinos                          | Treinador     |
-| US06 | Inclusão de exercícios aos treinos               | Treinador     |
-| US07 | Acesso de alunos aos seus treinos              | Aluno
-| US08 | Calcular seu IMC               | Aluno
-| US09 | Persistência de dados                        | Administrador |
+| US01 | Cadastro e edição de exercícios                          | Treinador     |
+| US02 | Remoção de exercícios                            | Treinador     |
+| US03 | Edição de dados de alunos                    | Alunos    |
+| US04 | Cadastro de Treinos                          | Alunos     |
+| US05 | Inclusão de exercícios aos treinos               |Alunos     |
+| US06 | Calcular seu IMC               | Aluno
+| US07 | Persistência de dados                        | Administrador |
+| US08 |Busca e filtragem de treinos por nome ou categoria                       | Alunos |
+| US09 | Visualização de indicadores de resumo (Dashboard)                       | Alunos |
 | US10 | Validação de login e autenticação            | Todos         |
 
 ### Não-funcionais
 - Persistência em banco de dados relacional MySQL.  
 - Sistema modular e escalável.  
-- Testes automatizados com Pytest para backend.  
+- Testes  com Pytest para backend.  
+- Testes com Pytest + Selenium para o frontend
 - Infraestrutura baseada em Docker para containerização de frontend, backend e banco de dados.  
-- Frontend responsivo e acessível, desenvolvido em React.  
+- Frontend responsivo e acessível, desenvolvido em React + Nextjs.  
 
 
 ---
@@ -45,7 +46,7 @@ O **We Go Gym** é um sistema de gerenciamento de exercícos que permite cadastr
 > **Descrição**:  
 - A interface web (frontend), faz chamadas REST para utilizar os serviços do backend.  
 - O backend utiliza o SQLAlchemy como camada de abstração para salvar e consultar dados no MySQL.  
-- Há testes automatizados que validam o funcionamento das rotas da API e o funcionamento do frontend.  
+- Há testes que validam o funcionamento das rotas da API e o funcionamento do frontend.  
 - Todo o ambiente do sistema é executado em containers Docker.  
 
 ---
@@ -55,26 +56,27 @@ O **We Go Gym** é um sistema de gerenciamento de exercícos que permite cadastr
 | Componente       | Tecnologia             | Responsabilidade                                           |
 |-----------------|----------------------|------------------------------------------------------------|
 | Backend         | FastAPI + SQLAlchemy | Lógica de negócio, APIs REST, validação e persistência    |
-| Banco de Dados  | MySQL                | Persistência de alunos, treinadores e treino e exercícios            |
-| Frontend         | React            | Interface do usuário, consultas, filtros e formulários        |
+| Banco de Dados  | MySQL                | Persistência de alunos,treinos, exercícios e IMCs            |
+| Frontend         | React   + Nextjs         | Interface do usuário, consultas, filtros e formulários        |
 | Testes          | Pytest   + Selenium            | Testes automatizados do frontend e do backend           |
-| Infraestrutura  | Docker               | Containerização do frontend, backend e banco de dados              |
+| Infraestrutura  | Docker               | Containerização do frontend, backend, banco de dados e api de autenticação              |
 
 ---
 
-## 6. Fluxos de Dados
+## 6.  Principais Fluxos de Aplicação
+Abaixo segue imagens de alguns dos fluxos de uso  considerados mais importantes para a aplicação.
 
 **Acesso a Aplicação**  
 ![Acesso a Aplicação](assets/AcessoUsuario.png)
 
 **Cadastro de Aluno**  
-![Cadastro de Aluno](assets/FluxoCadastroDeAluno.png)
+![Cadastro de Aluno](assets/CadastroAluno.png)
 
 **Cadastro de Treinos**  
-![Cadastro de Treinos](assets/FluxoCadastroTreino.png)
+![Cadastro de Treinos](assets/CriarTreino.png)
 
 **Visualisar Treinos**  
-![Visualizar Treinos](assets/FluxoVerTreinos.png)
+![Visualizar Treinos](assets/VerTreinos.png)
 
 ---
 
@@ -87,7 +89,7 @@ O **We Go Gym** é um sistema de gerenciamento de exercícos que permite cadastr
 | MySQL                      | Gerenciamento de dados relacionais e execução de consultas complexas  |
 | Docker                     | Automatiza a criação de ambientes consistentes, facilita deploy e escalabilidade |
 | Testes com Pytest e Selenium | Pytest para lógica de backend e Selenium para testes de interface e integração |
-| Frontend em React          | Criação de interfaces dinâmicas, reativas e componíveis               |
+| Frontend em React + Nextjs      | Criação de interfaces dinâmicas, reativas e componíveis               |
 
 
 
@@ -98,3 +100,4 @@ O **We Go Gym** é um sistema de gerenciamento de exercícos que permite cadastr
 |Versão|Data|Descrição|
 |:----:|----|---------|
 |`1.0`| 25/09/2025 | Criação do Artefato |
+|`2.0`| 24/11/2025 | Atualização do Artefato |

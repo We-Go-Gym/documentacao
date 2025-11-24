@@ -6,21 +6,23 @@ O backlog do **We Go Gym** é uma lista priorizada de histórias de usuário que
 
 | ID   | História de Usuário                                                                                 | Status   | Esforço |
 |------|----------------------------------------------------------------------------------------------------|----------|---------|
-| HU01 | Como treinador, eu quero cadastrar um novo aluno, para que eu possa gerenciar seus dados e rotinas de treino. | A fazer  | Alto    |
-| HU02 | Como treinador, eu quero adicionar um treino a um aluno, para que ele tenha acesso à rotina de exercícios. | A fazer  | Alto    |
-| HU03 | Como treinador, eu quero cadastrar um novo exercício, para que eu possa usá-lo na montagem de treinos. | A fazer  | Médio   |
-| HU04 | Como aluno, eu quero visualizar meu treino atual, incluindo a lista de exercícios, repetições e séries, para que eu saiba exatamente o que devo fazer na academia. | A fazer  | Alto    |
-| HU05 | Como aluno, eu quero calcular meu IMC, para que eu possa acompanhar meu progresso e saúde.        | A fazer  | Baixo   |
-| HU06 | Como treinador, eu quero visualizar a lista de todos os meus alunos, para que eu possa ter uma visão geral do meu trabalho. | A fazer  | Baixo   |
-| HU07 | Como treinador, eu quero editar o cadastro de um aluno (como peso ou altura), para que as informações fiquem sempre atualizadas. | A fazer  | Médio   |
-| HU08 | Como aluno, eu quero ver meus dados pessoais (nome, idade, etc.), para que eu possa conferir se as informações estão corretas. | A fazer  | Baixo   |
-| HU09 | Como treinador, eu quero visualizar a lista de treinos de um aluno para ver o histórico.          | A fazer  | Médio   |
-| HU10 | Como aluno, eu quero ver o meu histórico de treinos para comparar minha evolução.                 | A fazer  | Médio   |
-
+| HU01 | Como visitante, eu quero realizar meu auto-cadastro, para que eu possa criar minha conta e acessar a plataforma imediatamente. | Concluído  | Alto    |
+| HU02 | Como usuário, eu quero realizar login com autenticação segura, para que meus dados sejam protegidos contra acesso não autorizado. | Concluído  | Alto    |
+| HU03 | Como aluno, eu quero visualizar uma Dashboard (Painel) com contadores de treinos e exercícios, para ter uma visão rápida do meu engajamento. | Concluído | Médio   |
+| HU04 | Como aluno, eu quero visualizar meus Treinos, incluindo a lista de exercícios, repetições e séries, para que eu saiba exatamente o que devo fazer na academia. | Concluído  | Alto    |
+| HU05 | Como aluno, eu quero calcular meu IMC, para que eu possa acompanhar meu progresso e saúde.        |Concluído  | Baixo   |
+| HU06 |Como aluno, eu quero criar novos treinos personalizados, definindo nome, descrição e número de séries, para organizar minha rotina. |Concluído  | Alto   |
+| HU07 | Como aluno, eu quero adicionar e remover exercícios de um treino específico, para detalhar exatamente o que devo fazer na academia. |Concluído  | Médio   |
+| HU08 |Como aluno, eu quero editar meu perfil, para manter minhas informações corporais atualizadas para o cálculo do IMC. |Concluído  |Médio   |
+| HU09 |Como aluno, eu quero filtrar meus treinos por categoria (Ex: Hipertrofia) para encontrar rapidamente a rotina do dia.| Concluído  | Médio   |
+| HU10 | Como usuário, eu quero acessar a aplicação através de um link web (Deploy), para que eu possa usar o sistema de qualquer dispositivo sem instalação.                 | Concluído |Alto  |
+| HU11 | Como treinador(Admin) quero ter acesso a um Painel (Dashboard) com todos os exercícios que são consumidos para os treinos dos alunos                | Concluído  |Alto  |
+| HU11 | Como treinador(Admin) quero ser capaz de criar, excluir e deitar exercícios             | Concluído  |Alto  |
 
 ## Histórico de Versão
 
 |Versão|Data|Descrição|
 |:----:|----|---------|
 |`1.0`| 25/09/2025 | Criação do Artefato |
+|`2.0`| 24/11/2025 | Atualização do Artefato |
 
